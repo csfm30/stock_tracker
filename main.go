@@ -69,6 +69,7 @@ func main() {
 
 func initConfig() {
 	logs.Info("Init Config")
+	fmt.Println("test", os.Getenv("ENV"))
 	switch os.Getenv("ENV") {
 	case "":
 		os.Setenv("ENV", "dev")
