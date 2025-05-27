@@ -33,7 +33,7 @@ type responseGetStock struct {
 // @Router /v1/get-auth-agora [get]
 func GetStock(c *fiber.Ctx) error {
 
-	apiToken := viper.GetString("auth.stock_token")
+	apiToken := viper.GetString("auth.stockToken")
 
 	// db := database.DBConn
 	reqGetStock := new(reqGetStock)
