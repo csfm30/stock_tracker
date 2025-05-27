@@ -2,7 +2,7 @@
 FROM golang:1.22
 
 # Install tzdata for timezones
-RUN apk add --no-cache tzdata
+RUN apt-get update && apt-get install -y tzdata
 
 # Set timezone (optional but useful)
 ENV TZ=Asia/Bangkok
