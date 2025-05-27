@@ -61,6 +61,8 @@ func main() {
 	}
 	router.SetUpRouter(app)
 
+	fmt.Println("portTest", viper.GetString("app.port"))
+
 	if err := app.Listen(port); err != nil {
 		fmt.Println("error start server ->", err)
 	}
@@ -69,7 +71,6 @@ func main() {
 
 func initConfig() {
 	logs.Info("Init Config")
-	fmt.Println("test", os.Getenv("ENV"))
 	switch os.Getenv("ENV") {
 	case "":
 		viper.AutomaticEnv()
