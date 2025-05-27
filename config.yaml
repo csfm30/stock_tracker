@@ -1,0 +1,21 @@
+app:
+  host: "localhost"
+  port: ":7000"
+  port_dev: ":7001"
+
+pg:
+  host: "127.0.0.1"
+  port: "5432"
+  username: "postgres"
+  password: "mysecretpassword"
+  name: "postgres"
+
+auth:
+  access: ""
+  refresh: ""
+
+
+cache:
+  host: "localhost"
+  port: "6379"
+  db: "0"
