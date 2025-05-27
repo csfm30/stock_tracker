@@ -72,14 +72,18 @@ func initConfig() {
 	fmt.Println("test", os.Getenv("ENV"))
 	switch os.Getenv("ENV") {
 	case "":
+		viper.AutomaticEnv()
 		os.Setenv("ENV", "dev")
 		viper.SetConfigName("config_dev")
+		// viper.SetConfigName("config")
+	case "prd-local":
+		os.Setenv("ENV", "prd")
+		viper.SetConfigName("config")
 	default:
 		viper.SetConfigName("config")
 	}
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
-	viper.AutomaticEnv()
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 
 	err := viper.ReadInConfig()
