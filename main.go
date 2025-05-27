@@ -73,7 +73,6 @@ func initConfig() {
 	logs.Info("Init Config")
 	switch os.Getenv("ENV") {
 	case "":
-		viper.AutomaticEnv()
 		os.Setenv("ENV", "dev")
 		viper.SetConfigName("config_dev")
 		// viper.SetConfigName("config")
@@ -83,6 +82,7 @@ func initConfig() {
 	default:
 		viper.SetConfigName("config")
 	}
+	viper.AutomaticEnv()
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
